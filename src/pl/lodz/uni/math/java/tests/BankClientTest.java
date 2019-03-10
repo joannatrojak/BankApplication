@@ -46,5 +46,9 @@ class BankClientTest {
         BankClient tester = new BankClient();
         assertEquals("10/03/2019", tester.getDateOfJoining());
     }
-
+    @Test
+    public void createdAccount() throws ParseException {
+        BankClient tester = new BankClient();
+        assertEquals("international", tester.createAccount("international"));
+    }
 }

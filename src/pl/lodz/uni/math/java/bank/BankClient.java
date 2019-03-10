@@ -2,13 +2,17 @@ package pl.lodz.uni.math.java.bank;
 
 
 
+import pl.lodz.uni.math.java.bank.pl.lodz.uni.math.java.bank.account.InternationalAccount;
+import pl.lodz.uni.math.java.bank.pl.lodz.uni.math.java.bank.account.RegularAccount;
+import pl.lodz.uni.math.java.bank.pl.lodz.uni.math.java.bank.account.SavingAccount;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
 public final class BankClient {
-    private String firstName = null;
+    private String firstName;
     private String lastName;
     private Date dateOfBirth;
     private final String dateOfJoining;
@@ -50,5 +54,23 @@ public final class BankClient {
 
     public String getDateOfJoining() {
         return dateOfJoining;
+    }
+    public String createAccount(String typeOfAccount){
+        switch (typeOfAccount){
+            case "saving":
+                SavingAccount svaccount = new SavingAccount();
+                svaccount.setTypeOfAccount(typeOfAccount);
+                return svaccount.getTypeOfAccount();
+            case "regular":
+                RegularAccount raccount = new RegularAccount();
+                raccount.setTypeOfAccount(typeOfAccount);
+                return raccount.getTypeOfAccount();
+            case "international":
+                InternationalAccount iaccount = new InternationalAccount();
+                iaccount.setTypeOfAccount(typeOfAccount);
+                return iaccount.getTypeOfAccount();
+
+        }
+        return "Account type invalid";
     }
 }
