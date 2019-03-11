@@ -44,7 +44,7 @@ public final class BankClient {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
             return simpleDateFormat.format(dateOfBirth);
         } catch (Exception e){
-            throw new Exception(e.getMessage());
+            throw new Exception("Invalid date format");
         }
 
     }
@@ -55,22 +55,16 @@ public final class BankClient {
     public String getDateOfJoining() {
         return dateOfJoining;
     }
-    public String createAccount(String typeOfAccount){
+    public AccountInterface createAccount(String typeOfAccount){
         switch (typeOfAccount){
             case "saving":
-                SavingAccount svaccount = new SavingAccount();
-                svaccount.setTypeOfAccount(typeOfAccount);
-                return svaccount.getTypeOfAccount();
+                return new SavingAccount();
             case "regular":
-                RegularAccount raccount = new RegularAccount();
-                raccount.setTypeOfAccount(typeOfAccount);
-                return raccount.getTypeOfAccount();
+                return new RegularAccount();
             case "international":
-                InternationalAccount iaccount = new InternationalAccount();
-                iaccount.setTypeOfAccount(typeOfAccount);
-                return iaccount.getTypeOfAccount();
+                return new InternationalAccount();
 
         }
-        return "Account type invalid";
+        return null;
     }
 }

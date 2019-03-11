@@ -1,7 +1,9 @@
 package pl.lodz.uni.math.java.tests;
 
 import org.junit.jupiter.api.Test;
+import pl.lodz.uni.math.java.bank.AccountInterface;
 import pl.lodz.uni.math.java.bank.BankClient;
+import pl.lodz.uni.math.java.bank.pl.lodz.uni.math.java.bank.account.InternationalAccount;
 
 import java.text.ParseException;
 
@@ -33,7 +35,8 @@ class BankClientTest {
     @Test
     public void hasDateOfBirth() throws Exception {
         BankClient tester = new BankClient();
-        assertEquals(null, tester.getDateOfBirth());
+        Exception exception = assertThrows(Exception.class, () -> tester.getDateOfBirth());
+        assertEquals("Invalid date format", exception.getMessage());
     }
     @Test
     public void setDateOfBirth() throws Exception {
@@ -44,11 +47,11 @@ class BankClientTest {
     @Test
     public void hasDateOfJoining() throws ParseException {
         BankClient tester = new BankClient();
-        assertEquals("10/03/2019", tester.getDateOfJoining());
+        assertEquals("11/03/2019", tester.getDateOfJoining());
     }
     @Test
     public void createdAccount() throws ParseException {
         BankClient tester = new BankClient();
-        assertEquals("international", tester.createAccount("international"));
+        assertEquals("international", tester.createAccount("international").getTypeOfAccount());
     }
 }

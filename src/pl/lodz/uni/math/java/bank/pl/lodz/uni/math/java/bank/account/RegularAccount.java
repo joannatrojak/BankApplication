@@ -3,17 +3,23 @@ package pl.lodz.uni.math.java.bank.pl.lodz.uni.math.java.bank.account;
 import pl.lodz.uni.math.java.bank.AccountInterface;
 
 public class RegularAccount implements AccountInterface {
-    private int numberId = 0;
+    private final int numberId = this.hashCode();
     private String nameOfAccount = "";
     private int amountOfMoney = 0;
-    private String typeOfAccount = "";
-    @Override
-    public void setTypeOfAccount(String typeOfAccount) {
-        this.typeOfAccount = typeOfAccount;
-    }
+    private final String typeOfAccount = "regular";
 
     @Override
     public String getTypeOfAccount() {
         return typeOfAccount;
+    }
+
+    @Override
+    public int getAccountNumber() {
+        return numberId;
+    }
+
+    @Override
+    public String setAccountName(String name) {
+        return null;
     }
 }
