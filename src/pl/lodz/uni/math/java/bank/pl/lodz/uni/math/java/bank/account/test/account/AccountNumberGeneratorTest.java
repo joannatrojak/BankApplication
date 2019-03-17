@@ -11,4 +11,9 @@ class AccountNumberGeneratorTest {
         AccountNumberGenerator tester = new AccountNumberGenerator();
         assertEquals(89, tester.getControlNumber());
     }
+    @Test
+    public void checkIfSortCodeHasEightDigits(){
+        AccountNumberGenerator tester = new AccountNumberGenerator();
+        assertEquals(8, tester.checkNumberOfDigitsInSortCodes());
+    }
 }
