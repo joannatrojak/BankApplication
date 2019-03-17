@@ -1,4 +1,4 @@
-package pl.lodz.uni.math.java.tests.pl.lodz.uni.math.java.test.account;
+package pl.lodz.uni.math.java.bank.pl.lodz.uni.math.java.bank.account.test.account;
 
 import org.junit.jupiter.api.Test;
 import pl.lodz.uni.math.java.bank.pl.lodz.uni.math.java.bank.account.InternationalAccount;
