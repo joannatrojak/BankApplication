@@ -16,4 +16,14 @@ class AccountNumberGeneratorTest {
         AccountNumberGenerator tester = new AccountNumberGenerator();
         assertEquals(8, tester.checkNumberOfDigitsInSortCodes());
     }
+    @Test
+    public void getSortCodes(){
+        AccountNumberGenerator tester = new AccountNumberGenerator();
+        assertEquals(11100009, tester.getSortCodes());
+    }
+    @Test
+    public void checkIfSortCodesHasCorrectCheckSum(){
+        AccountNumberGenerator tester = new AccountNumberGenerator();
+        assertEquals(true, tester.ifSortCodesCheckSumCorrect());
+    }
 }
