@@ -11,24 +11,29 @@ public final class AccountNumberGenerator {
         return controlNumber;
     }
 
-    private int checkNumberOfDigitsInSortCodes() {
-        return (int)(Math.log10(sortCodes)+1);
+    public boolean checkNumberOfDigitsInSortCodes() {
+        if (((int)Math.log10(sortCodes)+1 == 8)){
+            return true;
+        }
+        return false;
     }
-    public int getSortCodes(){
+    public int getSortCodes() throws Exception {
         try{
             checkNumberOfDigitsInSortCodes();
             ifSortCodesCheckSumCorrect();
+            return sortCodes;
         }
-        catch (Exeption exeption){
-
+        catch (Exception e){
+            throw new Exception("Sort codes are incorrect");
         }
     }
-
-
-    private boolean ifSortCodesCheckSumCorrect() {
+    public boolean ifSortCodesCheckSumCorrect() {
         if (sortCodes % 10 == 9){
             return true;
         }
         return false;
+    }
+    public int generateClientNumber(){
+        
     }
 }

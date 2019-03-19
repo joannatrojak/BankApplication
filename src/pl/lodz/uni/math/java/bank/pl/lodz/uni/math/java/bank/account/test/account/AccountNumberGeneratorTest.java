@@ -14,10 +14,10 @@ class AccountNumberGeneratorTest {
     @Test
     public void checkIfSortCodeHasEightDigits(){
         AccountNumberGenerator tester = new AccountNumberGenerator();
-        assertEquals(8, tester.checkNumberOfDigitsInSortCodes());
+        assertEquals(true, tester.checkNumberOfDigitsInSortCodes());
     }
     @Test
-    public void getSortCodes(){
+    public void getSortCodes() throws Exception {
         AccountNumberGenerator tester = new AccountNumberGenerator();
         assertEquals(11100009, tester.getSortCodes());
     }
