@@ -26,4 +26,10 @@ class AccountNumberGeneratorTest {
         AccountNumberGenerator tester = new AccountNumberGenerator();
         assertEquals(true, tester.ifSortCodesCheckSumCorrect());
     }
+    @Test
+    public void getClientNumber(){
+        AccountNumberGenerator tester = new AccountNumberGenerator();
+        assertEquals(1, tester.generateClientNumber());
+        assertEquals(1, tester.generateClientNumber());
+    }
 }

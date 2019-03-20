@@ -2,9 +2,11 @@ package pl.lodz.uni.math.java.bank.pl.lodz.uni.math.java.bank.account;
 
 import pl.lodz.uni.math.java.bank.pl.lodz.uni.math.java.bank.account.test.account.SortCodes;
 
+import java.util.UUID;
+
 public final class AccountNumberGenerator {
     private final int controlNumber = 89;
-    private int clientNumber;
+    private static int clientNumber = 0;
     private int sortCodes = SortCodes.BANK1.getValue();
 
     public int getControlNumber() {
@@ -34,6 +36,6 @@ public final class AccountNumberGenerator {
         return false;
     }
     public int generateClientNumber(){
-        
+        return clientNumber++;
     }
 }
